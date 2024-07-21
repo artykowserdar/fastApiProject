@@ -7,8 +7,8 @@ from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import select
 
-from database import Base
-from util.sqlalchemy import GUID
+from .database import Base
+from .util.sqlalchemy import GUID
 
 
 # region Enums
@@ -351,8 +351,8 @@ class VehicleTypeLog(Base):
 class Vehicles(Base):
     __tablename__ = "tbl_vehicle"
     id = Column(GUID, primary_key=True, index=True)
-    model_id = Column(GUID, ForeignKey(VehicleModels.id, deferrable=True), nullable=False, index=True)
-    type_id = Column(GUID, ForeignKey(VehicleTypes.id, deferrable=True), nullable=False, index=True)
+    model_id = Column(GUID, ForeignKey(VehicleModels.id, deferrable=True), nullable=False)
+    type_id = Column(GUID, ForeignKey(VehicleTypes.id, deferrable=True), nullable=False)
     vehicle_name = Column(String(256), nullable=False, index=True)
     document_no = Column(String(64), nullable=True, index=True)
     vehicle_no = Column(String(64), nullable=False, index=True)
