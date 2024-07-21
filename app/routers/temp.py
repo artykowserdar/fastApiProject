@@ -24,14 +24,14 @@ def add_all_data(request: Request, db: Session = Depends(get_db)):
     user_access.add_user(db,
                          username="system",
                          password="system",
-                         role=models.UserRole.system.name,
+                         role=models.UserRole.system,
                          image=None,
                          customer_id=None,
                          action_user=None)
     user_access.add_user(db,
                          username="admin",
                          password="admin",
-                         role=models.UserRole.admin.name,
+                         role=models.UserRole.admin,
                          image=None,
                          customer_id=None,
                          action_user=None)
